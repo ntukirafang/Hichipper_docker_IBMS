@@ -1,0 +1,22 @@
+#Step1 Docker load compressed file to read the docker environment
+docker load  -i hichipper_final_tar.tar
+
+#Step2 Create a new container from images(compressed load)
+docker run --name hichipper_container  -idt hichipper_images_final
+
+#Step3 Enter in container
+docker exec -it hichipper_container /bin/bash
+
+#Step4 Find conda virtual environment
+conda env list
+
+#Step5 Enter conda virtual environment
+conda activate hichipper_new
+
+#Step6 Enter test file folder
+cd /root/hichipper/test_hichipper
+
+#Step7 Code
+hichipper --out hic_docker_Ma9_test (out_put_folder) /root/hichipper/test_hichipper/yaml/DR_SP_Wang_MA9.yaml(yaml folder)
+
+
